@@ -9,15 +9,11 @@ defmodule Newsletter do
   end
 
   def open_log(path) do
-    with {:ok, pid} <- File.open(path, [:write]) do
-      pid
-    else
-      {:error, reason} -> {:error, reason}
-    end
+    File.open!(path, [:write])
   end
 
   def log_sent_email(pid, email) do
-    with :ok <- IO.write(pid, email <> "\n") do
+    with :ok <- IO.puts(pid, email) do
       :ok
     else
       {:error, reason} -> {:error, reason}
