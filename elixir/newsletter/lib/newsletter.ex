@@ -34,18 +34,23 @@ defmodule Newsletter do
 
   def send_newsletter(emails_path, log_path, send_fun) do
     case read_emails(emails_path) do
-      {:error, reason} -> {:error, reason}
+      {:error, reason} ->
+        {:error, reason}
+
       emails ->
         case open_log(log_path) do
-          {:error, reason} -> {:error, reason}
+          {:error, reason} ->
+            {:error, reason}
+
           pid ->
             emails
             |> Enum.each(fn email ->
-
-              if send_fun.(email) == :ok do # Only log the email if it was sent successfully
+              # Only log the email if it was sent successfully
+              if send_fun.(email) == :ok do
                 log_sent_email(pid, email)
               end
             end)
+
             close_log(pid)
         end
     end
