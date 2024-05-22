@@ -1,21 +1,53 @@
 defmodule Newsletter do
   def read_emails(path) do
-    # Please implement the read_emails/1 function
+    with {:ok, contents} <- File.read(path) do
+      contents
+      |> String.split("\n", trim: true)
+    else
+      {:error, reason} -> {:error, reason}
+    end
   end
 
   def open_log(path) do
-    # Please implement the open_log/1 function
+    with {:ok, pid} <- File.open(path, [:write]) do
+      pid
+    else
+      {:error, reason} -> {:error, reason}
+    end
   end
 
   def log_sent_email(pid, email) do
-    # Please implement the log_sent_email/2 function
+    with :ok <- IO.write(pid, email <> "\n") do
+      :ok
+    else
+      {:error, reason} -> {:error, reason}
+    end
   end
 
   def close_log(pid) do
-    # Please implement the close_log/1 function
+    with :ok <- File.close(pid) do
+      :ok
+    else
+      {:error, reason} -> {:error, reason}
+    end
   end
 
   def send_newsletter(emails_path, log_path, send_fun) do
-    # Please implement the send_newsletter/3 function
+    case read_emails(emails_path) do
+      {:error, reason} -> {:error, reason}
+      emails ->
+        case open_log(log_path) do
+          {:error, reason} -> {:error, reason}
+          pid ->
+            emails
+            |> Enum.each(fn email ->
+
+              if send_fun.(email) == :ok do # Only log the email if it was sent successfully
+                log_sent_email(pid, email)
+              end
+            end)
+            close_log(pid)
+        end
+    end
   end
 end
