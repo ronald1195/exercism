@@ -1,0 +1,12 @@
+/Users/ronaldmr/.ghcup/ghc/9.2.7/lib/ghc-9.2.7/lib/aarch64-osx-ghc-9.2.7/rts-1.0.2/include/ghcversion.h:
+  hash: 33b3e1b0047b6cca48a29d69ecd33f64042e571e70747f1155f402ea75f33a9f
+? /Users/ronaldmr/Developer/GitHub/exercism/haskell/hello-world/.stack-work/dist/aarch64-osx/ghc-9.2.7/build/test/autogen/Paths_hello_world.hs
+: hash: 8a2405769ddc3b853675abb650bac1bc1f28df7f5839b74c27fccaee2c1f573c
+? /Users/ronaldmr/Developer/GitHub/exercism/haskell/hello-world/.stack-work/dist/aarch64-osx/ghc-9.2.7/build/test/autogen/cabal_macros.h
+: hash: ad79071ff35cafa283d91cd5123fb133e6ccb991b9dabeb94e6be2c1b4c974cf
+/Users/ronaldmr/Developer/GitHub/exercism/haskell/hello-world/hello-world.cabal:
+  hash: fe1baa0e7a5908c95e131eae8b51c074fabdbc42675bac37bc948aac69481b89
+/Users/ronaldmr/Developer/GitHub/exercism/haskell/hello-world/package.yaml:
+  hash: 160a1a88b7a5bd0f6f1ffd3e24f56cbba5e4d4fbd7f76ea73d649199ca9d76a5
+/Users/ronaldmr/Developer/GitHub/exercism/haskell/hello-world/test/Tests.hs:
+  hash: e3c9948060203a794b444e4596c90a63085f60817a31e9d626c9a3191142e0e5
