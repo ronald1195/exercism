@@ -47,7 +47,7 @@ def letter_grades(highest):
     """
 
     interval = (highest - 40) // 4
-    return [41 + (interval * i) for i in range(4)]
+    return [41 + (interval * index) for index in range(4)]
 
 
 def student_ranking(student_scores, student_names):
@@ -59,8 +59,8 @@ def student_ranking(student_scores, student_names):
     """
 
     return [
-        f"{i + 1}. {student_names[i]}: {student_scores[i]}"
-        for i in range(len(student_scores))
+        f"{index + 1}. {student_names[index]}: {student_scores[index]}"
+        for index in range(len(student_scores))
     ]
 
 
