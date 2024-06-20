@@ -46,8 +46,8 @@ def letter_grades(highest):
             86 <= "A" <= 100
     """
 
-    #   partial solution
-    pass
+    interval = (highest - 40) // 4
+    return [41 + (interval * i) for i in range(4)]
 
 
 def student_ranking(student_scores, student_names):
@@ -58,7 +58,10 @@ def student_ranking(student_scores, student_names):
     :return: list - of strings in format ["<rank>. <student name>: <score>"].
     """
 
-    pass
+    return [
+        f"{i + 1}. {student_names[i]}: {student_scores[i]}"
+        for i in range(len(student_scores))
+    ]
 
 
 def perfect_score(student_info):
@@ -68,4 +71,7 @@ def perfect_score(student_info):
     :return: list - first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
 
-    pass
+    for student in student_info:
+        if student[1] == 100:
+            return student
+    return []
