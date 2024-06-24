@@ -6,5 +6,6 @@ defmodule AllYourBase do
 
   @spec convert(list, integer, integer) :: {:ok, list} | {:error, String.t()}
   def convert(digits, input_base, output_base) do
+  # partial
   end
 end
