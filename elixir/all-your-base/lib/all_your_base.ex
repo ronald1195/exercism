@@ -6,13 +6,13 @@ defmodule AllYourBase do
 
   @spec convert(list, integer, integer) :: {:ok, list} | {:error, String.t()}
   def convert(digits, input_base, output_base) do
-    if input_base < 2 || output_base < 2 do
-      {:error, "Bases must be at least 2"}
-    else
-      case digits do
-        [] -> {:ok, []}
-        _ -> convert(digits, input_base, output_base, 0, 0)
-      end
-    end
+    # if input_base < 2 || output_base < 2 do
+    #   {:error, "Bases must be at least 2"}
+    # else
+    #   case digits do
+    #     [] -> {:ok, []}
+    #     _ -> convert(digits, input_base, output_base, 0, 0)
+    #   end
+    # end
   end
 end
