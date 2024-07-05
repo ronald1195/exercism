@@ -14,5 +14,6 @@ defmodule AllYourBase do
     #     _ -> convert(digits, input_base, output_base, 0, 0)
     #   end
     # end
+    # partial
   end
 end
