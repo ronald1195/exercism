@@ -16,5 +16,6 @@ defmodule AllYourBase do
     # end
     # partial
     # partial 2
+    # last partial
   end
 end
