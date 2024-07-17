@@ -6,18 +6,15 @@ defmodule AllYourBase do
 
   @spec convert(list, integer, integer) :: {:ok, list} | {:error, String.t()}
   def convert(digits, input_base, output_base) do
-    # if input_base < 2 || output_base < 2 do
-    #   {:error, "Bases must be at least 2"}
-    # else
-    #   case digits do
-    #     [] -> {:ok, []}
-    #     _ -> convert(digits, input_base, output_base, 0, 0)
-    #   end
-    # end
-    # partial
-    # partial 2
-    # last partial
-    # nvm this is the last
-    # :))
+    case {input_base, output_base} do
+      {_, _} when input_base < 2 -> {:error, "input base must be >= 2"}
+      {_, _} when output_base < 2 -> {:error, "output base must be >= 2"}
+      _ -> convert(digits, input_base, output_base, [])
+    end
   end
+
+  defp convert([], _, _, acc) do
+    {:ok, acc}
+  end
+
 end

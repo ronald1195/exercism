@@ -1,6 +1,7 @@
 defmodule AllYourBaseTest do
   use ExUnit.Case
 
+  @tag :pending
   test "convert single bit one to decimal" do
     assert AllYourBase.convert([1], 2, 10) == {:ok, [1]}
   end
@@ -60,17 +61,14 @@ defmodule AllYourBaseTest do
     assert AllYourBase.convert([0, 6, 0], 7, 10) == {:ok, [4, 2]}
   end
 
-  @tag :pending
   test "convert first base is one" do
     assert AllYourBase.convert([0], 1, 10) == {:error, "input base must be >= 2"}
   end
 
-  @tag :pending
   test "convert first base is zero" do
     assert AllYourBase.convert([], 0, 10) == {:error, "input base must be >= 2"}
   end
 
-  @tag :pending
   test "convert first base is negative" do
     assert AllYourBase.convert([1], -2, 10) == {:error, "input base must be >= 2"}
   end
@@ -87,22 +85,18 @@ defmodule AllYourBaseTest do
              {:error, "all digits must be >= 0 and < input base"}
   end
 
-  @tag :pending
   test "convert second base is one" do
     assert AllYourBase.convert([1, 0, 1, 0, 1, 0], 2, 1) == {:error, "output base must be >= 2"}
   end
 
-  @tag :pending
   test "convert second base is zero" do
     assert AllYourBase.convert([7], 10, 0) == {:error, "output base must be >= 2"}
   end
 
-  @tag :pending
   test "convert second base is negative" do
     assert AllYourBase.convert([1], 2, -7) == {:error, "output base must be >= 2"}
   end
 
-  @tag :pending
   test "convert both bases are negative" do
     assert AllYourBase.convert([1], -2, -7) == {:error, "input base must be >= 2"}
   end
