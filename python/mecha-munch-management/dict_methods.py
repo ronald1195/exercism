@@ -22,7 +22,7 @@ def read_notes(notes):
     :return: dict - a user shopping cart dictionary.
     """
 
-    pass
+    return dict.fromkeys(notes, 1)
 
 
 def update_recipes(ideas, recipe_updates):
@@ -33,7 +33,8 @@ def update_recipes(ideas, recipe_updates):
     :return: dict - updated "recipe ideas" dict.
     """
 
-    pass
+    ideas.update(recipe_updates)
+    return ideas
 
 
 def sort_entries(cart):
@@ -43,7 +44,7 @@ def sort_entries(cart):
     :return: dict - users shopping cart sorted in alphabetical order.
     """
 
-    pass
+    return dict(sorted(cart.items()))
 
 
 def send_to_store(cart, aisle_mapping):
@@ -53,8 +54,13 @@ def send_to_store(cart, aisle_mapping):
     :param aisle_mapping: dict - aisle and refrigeration information dictionary.
     :return: dict - fulfillment dictionary ready to send to store.
     """
+    fullfillment = {}
 
-    pass
+    for item in cart:
+        if item in aisle_mapping:
+            fullfillment[item] = [cart[item]] + aisle_mapping[item]
+
+    return dict(sorted(fullfillment.items(), reverse=True))
 
 
 def update_store_inventory(fulfillment_cart, store_inventory):
