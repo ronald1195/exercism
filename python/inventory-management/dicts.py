@@ -8,11 +8,11 @@ def create_inventory(items):
     :return: dict - the inventory dictionary.
     """
 
-    dict = {}
+    inventory = {}
     for item in items:
-        dict[item] = dict.get(item, 0) + 1
+        inventory[item] = inventory.get(item, 0) + 1
 
-    return dict
+    return inventory
 
 
 def add_items(inventory, items):
