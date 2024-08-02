@@ -6,17 +6,49 @@ defmodule AllYourBase do
 
   @spec convert(list, integer, integer) :: {:ok, list} | {:error, String.t()}
   def convert(digits, input_base, output_base) do
-    case {input_base, output_base} do
-      {_, _} when input_base < 2 -> {:error, "input base must be >= 2"}
-      {_, _} when output_base < 2 -> {:error, "output base must be >= 2"}
-      _ -> convert(digits, input_base, output_base, [])
+    with :ok <- validate_bases(input_base, output_base),
+         :ok <- validate_digits(digits) do
+      do_convert(digits, input_base, output_base)
     end
   end
 
-  defp convert([], _, _, acc) do
-    {:ok, acc}
+  defp do_convert(digits, input_base, output_base) do
+    if Enum.any?(digits, fn digit -> digit < 0 or digit >= input_base end) do
+      {:error, "all digits must be >= 0 and < input base"}
+    else
+      digits
+      |> to_decimal(input_base)
+      |> from_decimal(output_base)
+      |> case do
+        [] -> {:ok, [0]}
+        acc -> {:ok, Enum.reverse(acc)}
+      end
+    end
   end
 
-end # another easy day
-# doing hackerrranks stuff
-# studied some other elixir content again
+  defp to_decimal(digits, base) do
+    Enum.reduce(digits, 0, fn digit, acc -> acc * base + digit end)
+  end
+
+  defp from_decimal(0, _), do: []
+
+  defp from_decimal(decimal, base) do
+    [rem(decimal, base) | from_decimal(div(decimal, base), base)]
+  end
+
+  defp validate_bases(input_base, output_base) do
+    cond do
+      input_base < 2 -> {:error, "input base must be >= 2"}
+      output_base < 2 -> {:error, "output base must be >= 2"}
+      true -> :ok
+    end
+  end
+
+  defp validate_digits(digits) do
+    if Enum.any?(digits, &(&1 < 0)) do
+      {:error, "all digits must be >= 0 and < input base"}
+    else
+      :ok
+    end
+  end
+end
