@@ -21,7 +21,7 @@ def fix_list_of_wagons(each_wagons_id, missing_wagons):
     fixed_list = each_wagons_id[:3] + missing_wagons + each_wagons_id[3:]
     # Move the first two wagons to the end of the list
     # Partial
-    # partial
+    # partial again
     return fixed_list[2:] + fixed_list[:2]
 
 
