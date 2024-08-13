@@ -56,5 +56,9 @@ defmodule TopSecret do
     {_, acc} = Macro.prewalk(ast, [], &decode_secret_message_part/2)
 
     acc |> Enum.reverse() |> Enum.join("")
+
+
+
+
   end
 end
