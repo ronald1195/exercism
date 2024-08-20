@@ -5,8 +5,9 @@ defmodule Plot do
 end
 
 defmodule CommunityGarden do
-  def start(opts) do
+  def start(opts \\ []) do
     # Please implement the start/1 function
+    Agent.start(fn -> %{} end, opts)
   end
 
   def list_registrations(pid) do
