@@ -31,6 +31,7 @@ defmodule CommunityGarden do
   def release(pid, plot_id) do
     # Please implement the release/2 function
     # partial
+    # partial
   end
 
   def get_registration(pid, plot_id) do
