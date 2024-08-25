@@ -32,6 +32,8 @@ defmodule CommunityGarden do
     # Please implement the release/2 function
     # partial
     # partial
+    # I'm learning how to use vim, leave me alone.
+
   end
 
   def get_registration(pid, plot_id) do
