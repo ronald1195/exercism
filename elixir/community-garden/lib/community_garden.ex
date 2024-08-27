@@ -28,15 +28,20 @@ defmodule CommunityGarden do
   def release(pid, plot_id) do
     # Please implement the release/2 function
     case list_registrations(pid) do
-      [] -> {:error, "No registrations found"}
+      [] ->
+        {:error, "No registrations found"}
+
       registrations ->
         case Enum.find(registrations, fn plot -> plot.plot_id == plot_id end) do
-          nil -> {:error, "Plot not found"}
+          nil ->
+            {:error, "Plot not found"}
+
           plot ->
             Agent.update(pid, fn state ->
               new_plots = Enum.reject(state.plots, fn p -> p.plot_id == plot_id end)
               %{state | plots: new_plots}
             end)
+
             :ok
         end
     end
@@ -45,7 +50,9 @@ defmodule CommunityGarden do
   def get_registration(pid, plot_id) do
     # Please implement the get_registration/2 function
     case list_registrations(pid) do
-      [] -> {:not_found, "plot is unregistered"}
+      [] ->
+        {:not_found, "plot is unregistered"}
+
       registrations ->
         case Enum.find(registrations, fn plot -> plot.plot_id == plot_id end) do
           nil -> {:not_found, "plot is unregistered"}
