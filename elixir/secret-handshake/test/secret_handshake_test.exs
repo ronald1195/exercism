@@ -57,7 +57,7 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(0) == []
     end
 
-    @tag :pending
+    # @tag :pending
     test "do nothing if lower 5 bits not set" do
       assert SecretHandshake.commands(32) == []
     end
