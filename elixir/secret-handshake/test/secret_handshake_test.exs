@@ -47,7 +47,7 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(15) == ["wink", "double blink", "close your eyes", "jump"]
     end
 
-    @tag :pending
+    # @tag :pending
     test "reverse all possible actions" do
       assert SecretHandshake.commands(31) == ["jump", "close your eyes", "double blink", "wink"]
     end
