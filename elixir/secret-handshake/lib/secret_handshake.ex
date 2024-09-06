@@ -17,6 +17,8 @@ defmodule SecretHandshake do
 
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
+    # dbg(code)
+
     actions = [
       {1, "wink"},
       {2, "double blink"},
@@ -24,16 +26,29 @@ defmodule SecretHandshake do
       {8, "jump"}
     ]
 
-    if (16 &&& code) != 0 do
-      actions = Enum.reverse(actions)
-    end
+    # dbg(actions)
+
+    # if (16 &&& code) != 0 do
+    #  actions = Enum.reverse(actions)
+    # end
+
+    # dbg(actions)
 
     Enum.reduce(actions, [], fn {bit, action}, acc ->
       if (bit &&& code) != 0 do
-        [action | acc]
+        acc ++ [action]
       else
         acc
       end
     end)
+    |> reverse_if_needed(code)
+  end
+
+  defp reverse_if_needed(actions, code) do
+    if (16 &&& code) != 0 do
+      Enum.reverse(actions)
+    else
+      actions
+    end
   end
 end
