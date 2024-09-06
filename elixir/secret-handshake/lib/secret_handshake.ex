@@ -17,22 +17,12 @@ defmodule SecretHandshake do
 
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
-    # dbg(code)
-
     actions = [
       {1, "wink"},
       {2, "double blink"},
       {4, "close your eyes"},
       {8, "jump"}
     ]
-
-    # dbg(actions)
-
-    # if (16 &&& code) != 0 do
-    #  actions = Enum.reverse(actions)
-    # end
-
-    # dbg(actions)
 
     Enum.reduce(actions, [], fn {bit, action}, acc ->
       if (bit &&& code) != 0 do
