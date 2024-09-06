@@ -37,7 +37,7 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(24) == ["jump"]
     end
 
-    @tag :pending
+    # @tag :pending
     test "reversing no actions still gives no actions" do
       assert SecretHandshake.commands(16) == []
     end
