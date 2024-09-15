@@ -22,4 +22,10 @@ defmodule RPG do
   defprotocol Edible do
     def eat(item, character)
   end
+
+  defimpl Edible, for: LoafOfBread do
+    def eat(%LoafOfBread{} = _item, %Character{health: health} = character) do
+      {nil, %Character{character | health: health + 5}}
+    end
+  end
 end
