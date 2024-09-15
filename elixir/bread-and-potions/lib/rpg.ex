@@ -19,5 +19,7 @@ defmodule RPG do
     defstruct []
   end
 
-  # Add code to define the protocol and its implementations below here...
+  defprotocol Edible do
+    def eat(item, character)
+  end
 end
