@@ -3,6 +3,7 @@ defmodule CaptainsLog do
 
   def random_planet_class() do
     # Please implement the random_planet_class/0 function
+    # partial
   end
 
   def random_ship_registry_number() do
