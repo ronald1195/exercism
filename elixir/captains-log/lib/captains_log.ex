@@ -10,16 +10,11 @@ defmodule CaptainsLog do
   end
 
   def random_stardate() do
-    initial_star_date = Enum.random(41000..42000)
-
-    if initial_star_date < 41999 do
-      initial_star_date + :rand.uniform()
-    else
-      initial_star_date
-    end
+    :rand.uniform() * 1000 + 41000
   end
 
   def format_stardate(stardate) do
-    # Please implement the format_stardate/1 function
+    :io_lib.format("~.1f", [stardate])
+    |> :erlang.iolist_to_binary()
   end
 end
