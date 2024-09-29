@@ -35,6 +35,3 @@ defmodule FileSniffer do
     end
   end
 end
-
-# Partial
-# Partial
