@@ -1,6 +1,9 @@
 defmodule NeedForSpeed do
   # Add missing aliases and imports here.
-
+  alias NeedForSpeed.Race, as: Race
+  alias NeedForSpeed.RemoteControlCar, as: Car
+  import IO
+  import IO.ANSI, only: [red: 0, cyan: 0, green: 0, default_color: 0]
   # Do not edit the code below.
 
   def print_race(%Race{} = race) do
