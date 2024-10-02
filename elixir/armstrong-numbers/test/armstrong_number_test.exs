@@ -11,12 +11,12 @@ defmodule ArmstrongNumberTest do
     assert ArmstrongNumber.valid?(5)
   end
 
-  @tag :pending
+  # @tag :pending
   test "There are no two-digit Armstrong Numbers" do
     refute ArmstrongNumber.valid?(10)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Three-digit number that is an Armstrong number" do
     assert ArmstrongNumber.valid?(153)
   end
