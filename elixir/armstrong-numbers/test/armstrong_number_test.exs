@@ -31,17 +31,17 @@ defmodule ArmstrongNumberTest do
     assert ArmstrongNumber.valid?(9474)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Four-digit number that is not an Armstrong number" do
     refute ArmstrongNumber.valid?(9475)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Seven-digit number that is an Armstrong number" do
     assert ArmstrongNumber.valid?(9_926_315)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Seven-digit number that is not an Armstrong number" do
     refute ArmstrongNumber.valid?(9_926_134)
   end
