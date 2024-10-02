@@ -11,13 +11,13 @@ defmodule ArmstrongNumber do
     |> Kernel.==(number)
   end
 
-  def number_of_digits(number) do
+  defp number_of_digits(number) do
     number
     |> Integer.to_string()
     |> String.length()
   end
 
-  def sum_power(power, number) do
+  defp sum_power(power, number) do
     number
     |> Integer.to_string()
     |> String.graphemes()
