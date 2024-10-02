@@ -21,12 +21,12 @@ defmodule ArmstrongNumberTest do
     assert ArmstrongNumber.valid?(153)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Three-digit number that is not an Armstrong number" do
     refute ArmstrongNumber.valid?(100)
   end
 
-  @tag :pending
+  # @tag :pending
   test "Four-digit number that is an Armstrong number" do
     assert ArmstrongNumber.valid?(9474)
   end
