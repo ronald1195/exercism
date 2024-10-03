@@ -45,6 +45,7 @@ defmodule ComplexNumbers do
   """
   @spec sub(a :: complex | number, b :: complex | number) :: complex
   def sub(a, b) do
+    {real(a) - real(b), imaginary(a) - imaginary(b)}
   end
 
   @doc """

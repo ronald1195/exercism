@@ -111,7 +111,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Subtraction" do
-    @tag :pending
+    # @tag :pending
     test "Subtract purely real numbers" do
       z1 = {1, 0}
       z2 = {2, 0}
@@ -121,7 +121,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Subtract purely imaginary numbers" do
       z1 = {0, 1}
       z2 = {0, 2}
@@ -131,7 +131,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Subtract numbers with real and imaginary part" do
       z1 = {1, 2}
       z2 = {3, 4}
@@ -143,7 +143,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Multiplication" do
-    @tag :pending
+    # @tag :pending
     test "Multiply purely real numbers" do
       z1 = {1, 0}
       z2 = {2, 0}
@@ -153,7 +153,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Multiply purely imaginary numbers" do
       z1 = {0, 1}
       z2 = {0, 2}
@@ -163,7 +163,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Multiply numbers with real and imaginary part" do
       z1 = {1, 2}
       z2 = {3, 4}
