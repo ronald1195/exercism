@@ -62,6 +62,7 @@ defmodule ComplexNumbers do
   """
   @spec abs(a :: complex) :: number
   def abs(a) do
+    :math.sqrt(real(a) ** 2 + imaginary(a) ** 2)
   end
 
   @doc """
