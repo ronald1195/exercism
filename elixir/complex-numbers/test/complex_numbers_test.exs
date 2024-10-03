@@ -254,7 +254,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Complex conjugate" do
-    @tag :pending
+    # @tag :pending
     test "Conjugate a purely real number" do
       z = {5, 0}
       output = ComplexNumbers.conjugate(z)
@@ -263,7 +263,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Conjugate a purely imaginary number" do
       z = {0, 5}
       output = ComplexNumbers.conjugate(z)
@@ -272,7 +272,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Conjugate a number with real and imaginary part" do
       z = {1, 1}
       output = ComplexNumbers.conjugate(z)
@@ -283,7 +283,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Complex exponential function" do
-    @tag :pending
+    # @tag :pending
     test "Euler's identity/formula" do
       z = {0, :math.pi()}
       output = ComplexNumbers.exp(z)
@@ -292,7 +292,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Exponential of 0" do
       z = {0, 0}
       output = ComplexNumbers.exp(z)
@@ -301,7 +301,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Exponential of a purely real number" do
       z = {1, 0}
       output = ComplexNumbers.exp(z)
@@ -310,7 +310,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Exponential of a number with real and imaginary part" do
       z = {:math.log(2), :math.pi()}
       output = ComplexNumbers.exp(z)
@@ -319,7 +319,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Exponential resulting in a number with real and imaginary part" do
       z = {:math.log(2) / 2, :math.pi() / 4}
       output = ComplexNumbers.exp(z)
@@ -330,7 +330,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Operations between real numbers and complex numbers" do
-    @tag :pending
+    # @tag :pending
     test "Add real number to complex number" do
       z = {1, 2}
       r = 5
@@ -340,7 +340,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Add complex number to real number" do
       r = 5
       z = {1, 2}
@@ -350,7 +350,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Subtract real number from complex number" do
       z = {5, 7}
       r = 4
@@ -360,7 +360,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Subtract complex number from real number" do
       r = 4
       z = {5, 7}
@@ -370,7 +370,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Multiply complex number by real number" do
       z = {2, 5}
       r = 5
@@ -380,7 +380,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Multiply real number by complex number" do
       r = 5
       z = {2, 5}
@@ -390,7 +390,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Divide complex number by real number" do
       z = {10, 100}
       r = 10
@@ -400,7 +400,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Divide real number by complex number" do
       r = 5
       z = {1, 1}

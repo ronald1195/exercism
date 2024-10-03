@@ -11,16 +11,24 @@ defmodule ComplexNumbers do
   Return the real part of a complex number
   """
   @spec real(a :: complex) :: number
+  def real({real_a, _}) do
+    real_a
+  end
+
   def real(a) do
-    elem(a, 0)
+    a
   end
 
   @doc """
   Return the imaginary part of a complex number
   """
   @spec imaginary(a :: complex) :: number
-  def imaginary(a) do
-    elem(a, 1)
+  def imaginary({_real_a, imaginary_a}) do
+    imaginary_a
+  end
+
+  def imaginary(_a) do
+    0
   end
 
   @doc """
@@ -70,6 +78,7 @@ defmodule ComplexNumbers do
   """
   @spec conjugate(a :: complex) :: complex
   def conjugate(a) do
+    {real(a), -imaginary(a)}
   end
 
   @doc """
@@ -77,5 +86,6 @@ defmodule ComplexNumbers do
   """
   @spec exp(a :: complex) :: complex
   def exp(a) do
+    {:math.exp(real(a)) * :math.cos(imaginary(a)), :math.exp(real(a)) * :math.sin(imaginary(a))}
   end
 end
