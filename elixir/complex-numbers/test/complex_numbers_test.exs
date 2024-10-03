@@ -175,7 +175,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Division" do
-    @tag :pending
+    # @tag :pending
     test "Divide purely real numbers" do
       z1 = {1, 0}
       z2 = {2, 0}
@@ -185,7 +185,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Divide purely imaginary numbers" do
       z1 = {0, 1}
       z2 = {0, 2}
@@ -195,7 +195,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Divide numbers with real and imaginary part" do
       z1 = {1, 2}
       z2 = {3, 4}
@@ -207,7 +207,7 @@ defmodule ComplexNumbersTest do
   end
 
   describe "Absolute value" do
-    @tag :pending
+    # @tag :pending
     test "Absolute value of a positive purely real number" do
       z = {5, 0}
       output = ComplexNumbers.abs(z)
@@ -216,7 +216,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Absolute value of a negative purely real number" do
       z = {-5, 0}
       output = ComplexNumbers.abs(z)
@@ -225,7 +225,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Absolute value of a purely imaginary number with positive imaginary part" do
       z = {0, 5}
       output = ComplexNumbers.abs(z)
@@ -234,7 +234,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Absolute value of a purely imaginary number with negative imaginary part" do
       z = {0, -5}
       output = ComplexNumbers.abs(z)
@@ -243,7 +243,7 @@ defmodule ComplexNumbersTest do
       equal(output, expected)
     end
 
-    @tag :pending
+    # @tag :pending
     test "Absolute value of a number with real and imaginary part" do
       z = {3, 4}
       output = ComplexNumbers.abs(z)

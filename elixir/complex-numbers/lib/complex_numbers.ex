@@ -53,6 +53,8 @@ defmodule ComplexNumbers do
   """
   @spec div(a :: complex | number, b :: complex | number) :: complex
   def div(a, b) do
+    {(real(a) * real(b) + imaginary(a) * imaginary(b)) / (real(b) ** 2 + imaginary(b) ** 2),
+     (real(b) * imaginary(a) - real(a) * imaginary(b)) / (real(b) ** 2 + imaginary(b) ** 2)}
   end
 
   @doc """
