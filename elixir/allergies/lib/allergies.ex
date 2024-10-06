@@ -9,6 +9,7 @@ defmodule Allergies do
     64 => "pollen",
     128 => "cats"
   }
+  # partial
   @doc """
   List the allergies for which the corresponding flag bit is true.
   """
