@@ -19,7 +19,7 @@ defmodule AllergiesTest do
       Allergies.list(0) |> assert_is_a_set_containing([])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to just eggs" do
       Allergies.list(1) |> assert_is_a_set_containing(~w[eggs])
     end

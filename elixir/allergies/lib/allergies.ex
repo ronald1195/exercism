@@ -1,4 +1,6 @@
 defmodule Allergies do
+  import Bitwise
+
   @allergens %{
     1 => "eggs",
     2 => "peanuts",
@@ -9,21 +11,14 @@ defmodule Allergies do
     64 => "pollen",
     128 => "cats"
   }
-  # partial
-  # partial
   @doc """
   List the allergies for which the corresponding flag bit is true.
   """
   @spec list(non_neg_integer) :: [String.t()]
-  def list([flags]) do
-    Enum.filter(flags, fn flag -> @allergens[flag] end)
-  end
-
   def list(flag) do
-    case @allergens[flag] do
-      nil -> []
-      allergen -> [allergen]
-    end
+    @allergens
+    |> Enum.filter(fn {value, _allergen} -> (flag &&& value) != 0 end)
+    |> Enum.map(fn {_value, allergen} -> allergen end)
   end
 
   @doc """
