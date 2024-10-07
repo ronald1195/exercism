@@ -24,22 +24,22 @@ defmodule AllergiesTest do
       Allergies.list(1) |> assert_is_a_set_containing(~w[eggs])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to just peanuts" do
       Allergies.list(2) |> assert_is_a_set_containing(~w[peanuts])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to just strawberries" do
       Allergies.list(8) |> assert_is_a_set_containing(~w[strawberries])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to eggs and peanuts" do
       Allergies.list(3) |> assert_is_a_set_containing(~w[eggs peanuts])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to more than eggs but not peanuts" do
       Allergies.list(5) |> assert_is_a_set_containing(~w[eggs shellfish])
     end
