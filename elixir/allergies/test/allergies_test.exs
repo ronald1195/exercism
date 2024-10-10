@@ -50,7 +50,7 @@ defmodule AllergiesTest do
       |> assert_is_a_set_containing(~w[strawberries tomatoes chocolate pollen cats])
     end
 
-    @tag :pending
+    # @tag :pending
     test "allergic to everything" do
       Allergies.list(255)
       |> assert_is_a_set_containing(
@@ -58,7 +58,7 @@ defmodule AllergiesTest do
       )
     end
 
-    @tag :pending
+    # @tag :pending
     test "ignore non allergen score parts" do
       Allergies.list(509)
       |> assert_is_a_set_containing(
@@ -66,7 +66,7 @@ defmodule AllergiesTest do
       )
     end
 
-    @tag :pending
+    # @tag :pending
     test "ignore non allergen score parts without highest valid score" do
       Allergies.list(257)
       |> assert_is_a_set_containing(~w[eggs])
@@ -74,7 +74,7 @@ defmodule AllergiesTest do
   end
 
   describe "score for egg allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to eggs" do
       refute Allergies.allergic_to?(0, "eggs")
     end
