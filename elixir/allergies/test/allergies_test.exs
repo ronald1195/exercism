@@ -165,17 +165,17 @@ defmodule AllergiesTest do
       assert Allergies.allergic_to?(8, "strawberries")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to strawberries and something else" do
       assert Allergies.allergic_to?(28, "strawberries")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not strawberries" do
       refute Allergies.allergic_to?(20, "strawberries")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including strawberries)" do
       assert Allergies.allergic_to?(255, "strawberries")
     end
