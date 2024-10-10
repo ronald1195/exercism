@@ -79,76 +79,76 @@ defmodule AllergiesTest do
       refute Allergies.allergic_to?(0, "eggs")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only eggs" do
       assert Allergies.allergic_to?(1, "eggs")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to eggs and something else" do
       assert Allergies.allergic_to?(3, "eggs")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not eggs" do
       refute Allergies.allergic_to?(2, "eggs")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including eggs)" do
       assert Allergies.allergic_to?(255, "eggs")
     end
   end
 
   describe "score for peanuts allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to peanuts" do
       refute Allergies.allergic_to?(0, "peanuts")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only peanuts" do
       assert Allergies.allergic_to?(2, "peanuts")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to peanuts and something else" do
       assert Allergies.allergic_to?(7, "peanuts")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not peanuts" do
       refute Allergies.allergic_to?(5, "peanuts")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including peanuts)" do
       assert Allergies.allergic_to?(255, "peanuts")
     end
   end
 
   describe "score for shellfish allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to shellfish" do
       refute Allergies.allergic_to?(0, "shellfish")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only shellfish" do
       assert Allergies.allergic_to?(4, "shellfish")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to shellfish and something else" do
       assert Allergies.allergic_to?(14, "shellfish")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not shellfish" do
       refute Allergies.allergic_to?(10, "shellfish")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including shellfish)" do
       assert Allergies.allergic_to?(255, "shellfish")
     end
