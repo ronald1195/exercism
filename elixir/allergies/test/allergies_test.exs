@@ -182,34 +182,34 @@ defmodule AllergiesTest do
   end
 
   describe "score for tomatoes allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to tomatoes" do
       refute Allergies.allergic_to?(0, "tomatoes")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only tomatoes" do
       assert Allergies.allergic_to?(16, "tomatoes")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to tomatoes and something else" do
       assert Allergies.allergic_to?(56, "tomatoes")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not tomatoes" do
       refute Allergies.allergic_to?(40, "tomatoes")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including tomatoes)" do
       assert Allergies.allergic_to?(255, "tomatoes")
     end
   end
 
   describe "score for chocolate allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to chocolate" do
       refute Allergies.allergic_to?(0, "chocolate")
     end
