@@ -155,12 +155,12 @@ defmodule AllergiesTest do
   end
 
   describe "score for strawberries allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to strawberries" do
       refute Allergies.allergic_to?(0, "strawberries")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only strawberries" do
       assert Allergies.allergic_to?(8, "strawberries")
     end
