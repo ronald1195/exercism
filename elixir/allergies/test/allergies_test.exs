@@ -214,76 +214,76 @@ defmodule AllergiesTest do
       refute Allergies.allergic_to?(0, "chocolate")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only chocolate" do
       assert Allergies.allergic_to?(32, "chocolate")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to chocolate and something else" do
       assert Allergies.allergic_to?(112, "chocolate")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not chocolate" do
       refute Allergies.allergic_to?(80, "chocolate")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including chocolate)" do
       assert Allergies.allergic_to?(255, "chocolate")
     end
   end
 
   describe "score for pollen allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to pollen" do
       refute Allergies.allergic_to?(0, "pollen")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only pollen" do
       assert Allergies.allergic_to?(64, "pollen")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to pollen and something else" do
       assert Allergies.allergic_to?(224, "pollen")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not pollen" do
       refute Allergies.allergic_to?(160, "pollen")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including pollen)" do
       assert Allergies.allergic_to?(255, "pollen")
     end
   end
 
   describe "score for cats allergies -" do
-    @tag :pending
+    # @tag :pending
     test "not allergic to cats" do
       refute Allergies.allergic_to?(0, "cats")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to only cats" do
       assert Allergies.allergic_to?(128, "cats")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to cats and something else" do
       assert Allergies.allergic_to?(192, "cats")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to something, but not cats" do
       refute Allergies.allergic_to?(64, "cats")
     end
 
-    @tag :pending
+    # @tag :pending
     test "is allergic to everything (including cats)" do
       assert Allergies.allergic_to?(255, "cats")
     end
