@@ -7,13 +7,13 @@ defmodule AnagramTest do
     assert matches == []
   end
 
-  @tag :pending
+  # @tag :pending
   test "detects two anagrams" do
     matches = Anagram.match("solemn", ~w(lemons cherry melons))
     assert matches == ~w(lemons melons)
   end
 
-  @tag :pending
+  # @tag :pending
   test "does not detect anagram subsets" do
     matches = Anagram.match("good", ~w(dog goody))
     assert matches == []
