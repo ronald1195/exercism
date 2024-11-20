@@ -97,13 +97,13 @@ defmodule AnagramTest do
     assert matches == ~w(Silent)
   end
 
-  @tag :pending
+  # @tag :pending
   test "handles case of greek letters" do
     matches = Anagram.match("ΑΒΓ", ~w(ΒΓΑ ΒΓΔ γβα αβγ))
     assert matches == ~w(ΒΓΑ γβα)
   end
 
-  @tag :pending
+  # @tag :pending
   test "different characters may have the same bytes" do
     matches =
       Anagram.match(
