@@ -8,7 +8,7 @@ defmodule Anagram do
   end
 
   defp is_anagram?(base, candidate) do
-    base != candidate &&
+    String.downcase(base) != String.downcase(candidate) &&
       sorted_string(base) ==
         sorted_string(candidate)
   end
