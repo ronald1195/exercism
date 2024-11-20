@@ -85,7 +85,7 @@ defmodule AnagramTest do
     assert matches == []
   end
 
-  @tag :pending
+  # @tag :pending
   test "words are not anagrams of themselves even if letter case is completely different" do
     matches = Anagram.match("BANANA", ~w(banana))
     assert matches == []
