@@ -91,7 +91,7 @@ defmodule AnagramTest do
     assert matches == []
   end
 
-  @tag :pending
+  # @tag :pending
   test "words other than themselves can be anagrams" do
     matches = Anagram.match("LISTEN", ~w(Silent LISTEN))
     assert matches == ~w(Silent)
