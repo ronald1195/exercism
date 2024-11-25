@@ -31,7 +31,7 @@ defmodule ETLTest do
     assert ETL.transform(old) == expected
   end
 
-  @tag :pending
+  # @tag :pending
   test "multiple scores with differing numbers of letters" do
     old = %{
       1 => ~W(A E I O U L N R S T),
