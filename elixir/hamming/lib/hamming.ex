@@ -7,6 +7,7 @@ defmodule Hamming do
   iex> Hamming.hamming_distance(~c"AAGTCATA", ~c"TAGCGATC")
   {:ok, 4}
   """
+  #partial
   @spec hamming_distance([char], [char]) :: {:ok, non_neg_integer} | {:error, String.t()}
   def hamming_distance(strand1, strand2) do
   end
