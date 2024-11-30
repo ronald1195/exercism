@@ -10,17 +10,17 @@ defmodule HammingTest do
     assert Hamming.hamming_distance(~c"A", ~c"A") == {:ok, 0}
   end
 
-  @tag :pending
+  # @tag :pending
   test "single letter different strands" do
     assert Hamming.hamming_distance(~c"G", ~c"T") == {:ok, 1}
   end
 
-  @tag :pending
+  # @tag :pending
   test "long identical strands" do
     assert Hamming.hamming_distance(~c"GGACTGAAATCTG", ~c"GGACTGAAATCTG") == {:ok, 0}
   end
 
-  @tag :pending
+  # @tag :pending
   test "long different strands" do
     assert Hamming.hamming_distance(~c"GGACGGATTCTG", ~c"AGGACGGATTCT") == {:ok, 9}
   end
