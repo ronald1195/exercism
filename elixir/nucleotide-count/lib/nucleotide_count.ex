@@ -27,5 +27,8 @@ defmodule NucleotideCount do
   """
   @spec histogram(charlist()) :: map()
   def histogram(strand) do
+    Enum.reduce(@nucleotides, %{}, fn nucleotide, acc ->
+      Map.put(acc, nucleotide, count(strand, nucleotide))
+    end)
   end
 end

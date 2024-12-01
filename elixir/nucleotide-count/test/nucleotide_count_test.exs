@@ -24,25 +24,25 @@ defmodule NucleotideCountTest do
   end
 
   describe "histogram" do
-    @tag :pending
+    # @tag :pending
     test "empty dna string has no nucleotides" do
       expected = %{?A => 0, ?T => 0, ?C => 0, ?G => 0}
       assert NucleotideCount.histogram(~c"") == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "one nucleotide" do
       expected = %{?A => 0, ?T => 0, ?C => 0, ?G => 1}
       assert NucleotideCount.histogram(~c"G") == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "repetitive sequence has only guanine" do
       expected = %{?A => 0, ?T => 0, ?C => 0, ?G => 8}
       assert NucleotideCount.histogram(~c"GGGGGGGG") == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "counts all nucleotides" do
       s = ~c"AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
       expected = %{?A => 20, ?T => 21, ?C => 12, ?G => 17}
