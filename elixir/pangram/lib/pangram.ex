@@ -14,5 +14,14 @@ defmodule Pangram do
 
   @spec pangram?(String.t()) :: boolean
   def pangram?(sentence) do
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    sentence
+    |> String.downcase()
+    |> String.graphemes()
+    |> Enum.reduce(alphabet, fn letter, acc ->
+      String.replace(acc, letter, "")
+    end)
+    |> String.length() == 0
   end
 end
