@@ -10,5 +10,24 @@ defmodule Raindrops do
   """
   @spec convert(pos_integer) :: String.t()
   def convert(number) do
+    factors = Enum.filter(1..number, fn n -> rem(number, n) == 0 end)
+
+    sounds =
+      factors
+      |> Enum.map(
+        &case &1 do
+          3 -> "Pling"
+          5 -> "Plang"
+          7 -> "Plong"
+          _ -> ""
+        end
+      )
+      |> Enum.join()
+
+    if sounds == "" do
+      Integer.to_string(number)
+    else
+      sounds
+    end
   end
 end
