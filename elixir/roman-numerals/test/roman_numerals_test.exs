@@ -6,7 +6,7 @@ defmodule RomanNumeralsTest do
     assert RomanNumerals.numeral(1) == "I"
   end
 
-  @tag :pending
+  # @tag :pending
   test "2" do
     assert RomanNumerals.numeral(2) == "II"
   end
@@ -116,7 +116,7 @@ defmodule RomanNumeralsTest do
     assert RomanNumerals.numeral(3001) == "MMMI"
   end
 
-  @tag :pending
+  # @tag :pending
   test "3888" do
     assert RomanNumerals.numeral(3888) == "MMMDCCCLXXXVIII"
   end
