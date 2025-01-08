@@ -23,13 +23,7 @@ defmodule RomanNumerals do
 
     # convert number to roman numeral by iterating over the roman_numerals list and substracting the value from the number by which the numner is dividible and adding the roman numeral to the result
     Enum.reduce(roman_numerals, {number, ""}, fn {divisor, roman}, {num, result} ->
-      rem(num, divisor)
-      |> dbg()
-
-      dbg("Roman: #{roman}")
-      # {rem(num, divisor), result <> String.duplicate(roman, div(num, divisor))}
-      # |> dbg()
-      {0, result}
+      {rem(num, divisor), result <> String.duplicate(roman, div(num, divisor))}
     end)
     |> elem(1)
   end
