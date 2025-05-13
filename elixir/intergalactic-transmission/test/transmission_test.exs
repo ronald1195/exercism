@@ -6,7 +6,7 @@ defmodule TransmissionTest do
       assert Transmission.get_transmit_sequence(<<>>) == <<>>
     end
 
-    @tag :pending
+    # @tag :pending
     test "0x00 is transmitted as 0x0000" do
       assert Transmission.get_transmit_sequence(<<0x00>>) == <<0x00, 0x00>>
     end
@@ -16,17 +16,17 @@ defmodule TransmissionTest do
       assert Transmission.get_transmit_sequence(<<0x02>>) == <<0x03, 0x00>>
     end
 
-    @tag :pending
+    # @tag :pending
     test "0x06 is transmitted as 0x0600" do
       assert Transmission.get_transmit_sequence(<<0x06>>) == <<0x06, 0x00>>
     end
 
-    @tag :pending
+    # @tag :pending
     test "0x05 is transmitted as 0x0581" do
       assert Transmission.get_transmit_sequence(<<0x05>>) == <<0x05, 0x81>>
     end
 
-    @tag :pending
+    # @tag :pending
     test "0x29 is transmitted as 0x2881" do
       assert Transmission.get_transmit_sequence(<<0x29>>) == <<0x28, 0x81>>
     end
