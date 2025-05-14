@@ -57,13 +57,13 @@ defmodule Transmission do
   end
 
   @spec count_one_bits(<<_::7>>) :: integer()
-  def count_one_bits(<<bit1::1, bit2::1, bit3::1, bit4::1, bit5::1, bit6::1, bit7::1>>) do
+  defp count_one_bits(<<bit1::1, bit2::1, bit3::1, bit4::1, bit5::1, bit6::1, bit7::1>>) do
     [bit1, bit2, bit3, bit4, bit5, bit6, bit7]
     |> Enum.count(&(&1 == 1))
   end
 
   @spec get_parity_bit(<<_::7>>) :: <<_::1>>
-  def get_parity_bit(bitstring) do
+  defp get_parity_bit(bitstring) do
     if rem(count_one_bits(bitstring), 2) == 0 do
       <<0::1>>
     else
@@ -71,7 +71,7 @@ defmodule Transmission do
     end
   end
 
-  def add_reminding_bits(bitstring) do
+  defp add_reminding_bits(bitstring) do
     missing_bits = 7 - bit_size(bitstring)
 
     if missing_bits > 0 do
