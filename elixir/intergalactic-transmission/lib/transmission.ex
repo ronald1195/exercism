@@ -4,39 +4,56 @@ defmodule Transmission do
   """
   @spec get_transmit_sequence(binary()) :: binary()
   def get_transmit_sequence(message) do
-    {:ok, decoded_message} = decode_message(message)
-    decoded_message
+    build_transmit_sequence(message, <<>>)
+  end
+
+  defp build_transmit_sequence(<<>>, acc), do: acc
+
+  defp build_transmit_sequence(message, acc) when bit_size(message) < 7 do
+    # Add trailing zeroes
+    padded = add_reminding_bits(message)
+    parity_bit = get_parity_bit(padded)
+    acc <> <<padded::bitstring, parity_bit::bitstring>>
+  end
+
+  defp build_transmit_sequence(<<seven_bits::bitstring-size(7), rest::bitstring>>, acc) do
+    parity_bit = get_parity_bit(seven_bits)
+    byte_with_parity = <<seven_bits::bitstring, parity_bit::bitstring>>
+    build_transmit_sequence(rest, <<acc::bitstring, byte_with_parity::bitstring>>)
   end
 
   @doc """
   Return the message decoded from the received transmission.
   """
   @spec decode_message(binary(), binary()) :: {:ok, binary()} | {:error, String.t()}
-  def decode_message(received_data, decoded_message \\ <<>>)
+  def decode_message(data, acc \\ <<>>)
 
-  def decode_message(<<>>, decoded_message) do
-    {:ok, decoded_message}
+  # End of transmission
+  def decode_message(<<>>, acc) do
+    truncated = truncate_to_byte(acc)
+    {:ok, truncated}
   end
 
-  def decode_message(received_data, decoded_message) when bit_size(received_data) < 7 do
-    # IO.inspect("")
-    # IO.inspect("unfinished byte detected")
-    # IO.inspect(received_data, label: "Received data")
-    # IO.inspect(decoded_message, label: "Decoded message")
-  #   # IO.inspect(bit_size(received_data), label: "Byte size of received data")
-
-    full_last_seven_bits = add_reminding_bits(received_data)
-    parity_bit = get_parity_bit(full_last_seven_bits)
-    last_byte = <<full_last_seven_bits::bitstring, parity_bit::bitstring>>
-
-    decode_message(<<>>, << decoded_message::bitstring, last_byte::bitstring >>)
+  # Handle final partial byte (< 8 bits)
+  def decode_message(bits, acc) when bit_size(bits) < 8 do
+    padded = add_reminding_bits(bits)
+    parity_bit = get_parity_bit(padded)
+    <<final_byte::bitstring>> = <<padded::bitstring, parity_bit::bitstring>>
+    decode_message(<<>>, <<acc::bitstring, final_byte::bitstring>>)
   end
 
-  def decode_message(<< <<head::bitstring-size(7), carrying::bitstring-size(1) >>, rest::binary>>, decoded_message) do
-    parity_bit = get_parity_bit(head)
-    new_byte = <<head::bitstring, parity_bit::bitstring>>
+  # Handle full 8-bit bytes
+  def decode_message(
+        <<seven::bitstring-size(7), parity::bitstring-size(1), rest::bitstring>>,
+        acc
+      ) do
+    expected_parity = get_parity_bit(seven)
 
-    decode_message(<<carrying::bitstring, rest::binary>>, <<decoded_message::bitstring, new_byte::bitstring>>)
+    if parity == expected_parity do
+      decode_message(rest, <<acc::bitstring, seven::bitstring>>)
+    else
+      {:error, "wrong parity"}
+    end
   end
 
   @spec count_one_bits(<<_::7>>) :: integer()
@@ -47,7 +64,6 @@ defmodule Transmission do
 
   @spec get_parity_bit(<<_::7>>) :: <<_::1>>
   def get_parity_bit(bitstring) do
-    # IO.inspect(bitstring, label: "Bitstring")
     if rem(count_one_bits(bitstring), 2) == 0 do
       <<0::1>>
     else
@@ -57,13 +73,20 @@ defmodule Transmission do
 
   def add_reminding_bits(bitstring) do
     missing_bits = 7 - bit_size(bitstring)
-    # IO.inspect(missing_bits, label: "Missing bits")
-    # IO.inspect(bit_size(bitstring), label: "bit size")
 
     if missing_bits > 0 do
       <<bitstring::bitstring, 0::size(missing_bits)>>
     else
       bitstring
     end
+  end
+
+  defp truncate_to_byte(bits) do
+    total_bits = bit_size(bits)
+    full_bytes = div(total_bits, 8)
+    byte_bits = full_bytes * 8
+
+    <<result::bitstring-size(byte_bits), _::bitstring>> = bits
+    result
   end
 end
