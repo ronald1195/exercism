@@ -11,7 +11,7 @@ defmodule VariableLengthQuantityTest do
       assert output == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "arbitrary single byte" do
       integers = [0x40]
       output = VariableLengthQuantity.encode(integers)
@@ -20,7 +20,7 @@ defmodule VariableLengthQuantityTest do
       assert output == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "largest single byte" do
       integers = [0x7F]
       output = VariableLengthQuantity.encode(integers)
@@ -29,7 +29,7 @@ defmodule VariableLengthQuantityTest do
       assert output == expected
     end
 
-    @tag :pending
+    # @tag :pending
     test "smallest double byte" do
       integers = [0x80]
       output = VariableLengthQuantity.encode(integers)
